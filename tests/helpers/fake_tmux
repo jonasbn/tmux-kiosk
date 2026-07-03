@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Mock tmux binary for tests. Logs calls and returns configurable responses.
+CALL_LOG="${TMUX_CALL_LOG:-/tmp/tmux-test-calls.log}"
+echo "$*" >> "$CALL_LOG"
+
+case "$1" in
+    show-option)
+        case "${*}" in
+            *@kiosk-interval*) echo "${TMUX_KIOSK_INTERVAL:-10}" ;;
+            *@kiosk-status\ *|*@kiosk-status) echo "${TMUX_KIOSK_STATUS:-⟳}" ;;
+        esac
+        exit 0
+        ;;
+    next-window)
+        exit "${TMUX_NEXT_WINDOW_EXIT:-0}"
+        ;;
+    set-option|bind-key|set-hook)
+        exit 0
+        ;;
+    *)
+        exit 0
+        ;;
+esac
