@@ -17,6 +17,11 @@ fi
 INTERVAL=$(tmux show-option -gv @kiosk-interval 2>/dev/null)
 INTERVAL="${INTERVAL:-10}"
 
+# Ensure interval is a positive integer; fall back to default if not
+if ! echo "$INTERVAL" | grep -qE '^[0-9]+$' || [ "$INTERVAL" -eq 0 ] 2>/dev/null; then
+    INTERVAL=10
+fi
+
 STATUS_TEXT=$(tmux show-option -gv @kiosk-status 2>/dev/null)
 STATUS_TEXT="${STATUS_TEXT:-⟳}"
 

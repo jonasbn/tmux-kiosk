@@ -12,5 +12,5 @@ tmux set-option -g @kiosk-interval "$INTERVAL"
 tmux bind-key "$KEY" run-shell \
     "$CURRENT_DIR/scripts/toggle.sh '#{session_id}'"
 
-tmux set-hook -g session-closed \
+tmux set-hook -ag session-closed \
     "run-shell '$CURRENT_DIR/scripts/cleanup.sh #{session_id}'"
