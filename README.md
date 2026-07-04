@@ -76,3 +76,19 @@ When kiosk mode is on, this will display the configured status symbol (default `
 - Window switching automatically wraps from the last window to the first
 - Sessions with a single window run harmlessly without error
 - The background switching process is cleaned up automatically when the session closes or exits tmux
+
+## Motivation
+
+I often have quite a few terminal windows open, where I monitor various things.
+
+- `codeburn`
+- `abtop`
+- `wtfutil`
+
+Since I am not watching these constantly but they take up a lot of Desktop space, I needed something for rotating them in a single terminal.
+
+So using Claude code I developed this and I was actually working on something else, so I let Claude do the coding.
+
+## License
+
+MIT
