@@ -41,11 +41,11 @@ git clone https://github.com/jonasbn/tmux-kiosk \
 
 ## Configuration
 
-| Option | Default | Description |
-|---|---|---|
-| `@kiosk-interval` | `10` | Seconds between window switches |
-| `@kiosk-key` | `W` | Toggle key (used with tmux prefix) |
-| `@kiosk-status` | `⟳` | Status bar text shown when active |
+| Option            | Default | Description                        |
+|-------------------|---------|------------------------------------|
+| `@kiosk-interval` | `10`    | Seconds between window switches    |
+| `@kiosk-key`      | `W`     | Toggle key (used with tmux prefix) |
+| `@kiosk-status`   | `⟳`     | Status bar text shown when active  |
 
 Add these to your `~/.tmux.conf` to customize:
 
