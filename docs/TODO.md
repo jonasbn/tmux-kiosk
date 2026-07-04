@@ -3,7 +3,7 @@
 Follow-up candidates identified after adding the ShellCheck and zizmor
 workflows (PR #3). Tackle one at a time, each as its own PR.
 
-- [ ] **Dependabot for GitHub Actions** — add `.github/dependabot.yml` with
+- [x] **Dependabot for GitHub Actions** — add `.github/dependabot.yml` with
   `package-ecosystem: "github-actions"` so the SHA-pinned actions in
   `shellcheck.yml` and `zizmor.yml` get automated update PRs instead of
   silently going stale.
