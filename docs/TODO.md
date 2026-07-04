@@ -3,10 +3,10 @@
 Follow-up candidates identified after adding the ShellCheck and zizmor
 workflows (PR #3). Tackle one at a time, each as its own PR.
 
-- [ ] **Dependabot for GitHub Actions** — add `.github/dependabot.yml` with
-  `package-ecosystem: "github-actions"` so the SHA-pinned actions in
-  `shellcheck.yml` and `zizmor.yml` get automated update PRs instead of
-  silently going stale.
+- [x] **Dependabot for GitHub Actions** — add `.github/dependabot.yml` with
+  `package-ecosystem: "github-actions"` so the SHA-pinned actions across all
+  workflows in `.github/workflows/` (`shellcheck.yml`, `zizmor.yml`,
+  `bats.yml`) get automated update PRs instead of silently going stale.
 - [x] **CI workflow for the bats test suite** — `tests/*.bats` exists but
   nothing runs it in CI. Add a workflow that installs bats and runs the
   suite on push/PR.
