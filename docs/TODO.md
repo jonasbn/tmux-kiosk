@@ -20,3 +20,7 @@ workflows (PR #3). Tackle one at a time, each as its own PR.
 - [ ] **Branch protection ruleset on `main`** — repo setting, not a file;
   require ShellCheck/zizmor/tests checks (and a review) to pass before
   merge, so the new CI checks actually gate merges.
+- [ ] **Extend ShellCheck to `tests/*.bats`** — shellcheck can parse bats
+  files and already flags 3 real issues there (`SC2314`, `SC2030`/`SC2031`)
+  when run locally; add them to the `shellcheck.yml` step and fix the
+  findings.

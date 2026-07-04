@@ -39,9 +39,11 @@ locally, check `ps -p 1 -o cmd` before assuming a real regression.
 Three workflows in `.github/workflows/`, all following the same hardening
 conventions (established via zizmor, see below):
 
-- `shellcheck.yml` — lints every shell script (`scripts/*.sh`,
+- `shellcheck.yml` — lints the plugin's shell entrypoints (`scripts/*.sh`,
   `tmux-kiosk.tmux`, `tests/helpers/fake_tmux`) with ShellCheck, which is
-  preinstalled on `ubuntu-latest` runners.
+  preinstalled on `ubuntu-latest` runners. It does not currently cover
+  `tests/*.bats` (shellcheck can parse bats files, but they weren't in
+  scope for the original workflow — see `docs/TODO.md`).
 - `bats.yml` — installs bats via `apt-get install --no-install-recommends`
   and runs `tests/*.bats`.
 - `zizmor.yml` — audits the workflows themselves with
