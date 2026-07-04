@@ -7,7 +7,7 @@ workflows (PR #3). Tackle one at a time, each as its own PR.
   `package-ecosystem: "github-actions"` so the SHA-pinned actions in
   `shellcheck.yml` and `zizmor.yml` get automated update PRs instead of
   silently going stale.
-- [ ] **CI workflow for the bats test suite** — `tests/*.bats` exists but
+- [x] **CI workflow for the bats test suite** — `tests/*.bats` exists but
   nothing runs it in CI. Add a workflow that installs bats and runs the
   suite on push/PR.
 - [ ] **actionlint workflow** — complements zizmor (security) with
