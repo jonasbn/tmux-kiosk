@@ -35,6 +35,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Upload SARIF file
+        # GITHUB_TOKEN is read-only for pull_request events from forks, so
+        # skip the upload in that case rather than failing the workflow.
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: github/codeql-action/upload-sarif@411c4c9a36b3fca4d674f06b6396b2c6d23522c6 # v3.36.3
         with:
           sarif_file: results.sarif
