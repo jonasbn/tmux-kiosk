@@ -15,6 +15,19 @@ a key and a `session-closed` hook. Behavior lives in `scripts/`:
 - `scripts/cleanup.sh` — kills the switcher and removes the PID file when a
   session closes.
 
+## Demo asset
+
+`docs/demo.gif` (embedded in the README) is generated from `docs/demo.tape`
+via [VHS](https://github.com/charmbracelet/vhs) (`brew install vhs`). It
+spins up a real tmux session with three dummy windows, sources
+`tmux-kiosk.tmux` directly (no TPM needed), and drives the actual
+prefix+W toggle — nothing about the recording is faked. Regenerate after
+any user-visible behavior change:
+
+```bash
+vhs docs/demo.tape   # run from repo root; writes docs/demo.gif
+```
+
 ## Testing
 
 Tests are bats (`tests/*.bats`). They never touch real tmux — a fake

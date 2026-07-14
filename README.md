@@ -2,6 +2,8 @@
 
 A tmux plugin for hands-free window monitoring and cycling. Perfect for dashboard monitoring, status displays, and other scenarios where you want windows to rotate automatically at a fixed interval. tmux-kiosk lets you enable or disable auto-cycling with a single keybinding, with optional visual feedback in the status bar.
 
+![tmux-kiosk demo: three windows (dashboard, logs, metrics) auto-cycling every few seconds, with the status bar indicator turning on and off via prefix+W](docs/demo.gif)
+
 ## Features
 
 - Toggle auto-switching on/off with a single keybinding
