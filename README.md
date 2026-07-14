@@ -1,5 +1,8 @@
 # tmux-kiosk
 
+> [!NOTE]
+> This was named **tmux-kiosk**, I believe that kiosks are often also read-only, this is not. It works better with read-only windows, but perhaps it should have been named carousel or something similar
+ 
 A tmux plugin for hands-free window monitoring and cycling. Perfect for dashboard monitoring, status displays, and other scenarios where you want windows to rotate automatically at a fixed interval. tmux-kiosk lets you enable or disable auto-cycling with a single keybinding, with optional visual feedback in the status bar.
 
 ![tmux-kiosk demo: three windows (dashboard, logs, metrics) auto-cycling every few seconds, with the status bar indicator turning on and off via prefix+W](docs/demo.gif)
@@ -89,7 +92,8 @@ I often have quite a few terminal windows open, where I monitor various things.
 
 Since I am not watching these constantly but they take up a lot of Desktop space, I needed something for rotating them in a single terminal.
 
-So using Claude code I developed this and I was actually working on something else, so I let Claude do the coding.
+> [!IMPORTANT]
+> I developed this using Claude Code as I was actually working on something else, so I let Claude do the coding.
 
 ## License
 
