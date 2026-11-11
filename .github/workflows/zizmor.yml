@@ -1,11 +1,9 @@
-name: zizmor
+name: GitHub Actions Security Analysis with zizmor
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   pull_request:
-  workflow_dispatch:
 
 permissions: {}
 
@@ -15,30 +13,17 @@ concurrency:
 
 jobs:
   zizmor:
-    name: zizmor
+    name: Check workflows and actions with zizmor
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      security-events: write # required to upload the SARIF results to code scanning
+      security-events: write # upload SARIF findings to the Code Scanning tab
+      contents: read # checkout the repository
+      actions: read # required by zizmor-action to resolve reusable workflows
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
-
       - name: Run zizmor
-        run: uvx zizmor --format sarif .github/workflows > results.sarif
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Upload SARIF file
-        # GITHUB_TOKEN is read-only for pull_request events from forks, so
-        # skip the upload in that case rather than failing the workflow.
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-        uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
-        with:
-          sarif_file: results.sarif
-          category: zizmor
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
